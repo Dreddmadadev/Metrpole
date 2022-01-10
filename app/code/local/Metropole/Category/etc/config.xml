@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Metropole_Category>
+            <version>0.1.1</version>
+        </Metropole_Category>
+    </modules>
+    <global>
+        <helpers>
+            <metropole_category>
+                <class>Metropole_Category_Helper</class>
+            </metropole_category>
+        </helpers>
+        <resources>
+            <metropole_category_setup>
+                <setup>
+                    <module>Metropole_Category</module>
+                </setup>
+            </metropole_category_setup>
+        </resources>
+    </global>
+</config>

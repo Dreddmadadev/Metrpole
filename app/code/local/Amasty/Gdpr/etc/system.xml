@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Gdpr
+ */
+-->
+<config>
+    <sections>
+        <amgdpr translate="label" module="amgdpr">
+            <label>GDPR</label>
+            <tab>amasty</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>70416</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <avoid_anonymisation translate="label comment">
+                            <label>Forbid a customer`s personal data anonymization for orders in certain statuses</label>
+                            <comment>If enabled, orders in certain statuses will not be allowed to anonymize personal data from by a customer and by admin roles.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </avoid_anonymisation>
+                        <statuses translate="label comment">
+                            <label>Order Statuses</label>
+                            <comment>Orders with selected statuses will not be allowed to anonymize personal data.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>amgdpr/source_status</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <avoid_anonymisation>1</avoid_anonymisation>
+                            </depends>
+                        </statuses>
+                    </fields>
+                </general>
+                <customer_access_control translate="label">
+                    <label>Enable or Disable Privacy Settings Sections</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>7</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <download translate="label comment">
+                            <label>Download Personal Data</label>
+                            <comment>A customer will not be able to download personal data if disabled</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </download>
+                        <anonymize translate="label comment">
+                            <label>Anonymize Personal Data</label>
+                            <comment>A customer will not be able to anonymize personal data if disabled</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </anonymize>
+                        <delete translate="label comment">
+                            <label>Delete Account</label>
+                            <comment>A customer will not be able to delete account if disabled</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </delete>
+                        <anonymize_guest translate="label comment">
+                            <label>Anonymize Personal Data For Guest</label>
+                            <comment>A guest will not be able to anonymize order data if disabled</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </anonymize_guest>
+                    </fields>
+                </customer_access_control>
+                <anonymisation_notification translate="label">
+                    <label>Anonymization Notifications</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <from translate="label">
+                            <label>Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </from>
+                        <reply_to translate="label comment">
+                            <label>Email Reply To</label>
+                            <comment><![CDATA[Specify the separate email address for replies or leave blank to use the sender address instead.<br>You can set only one email address in this field.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </reply_to>
+                        <template translate="label">
+                            <label>Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </template>
+                    </fields>
+                </anonymisation_notification>
+                <deletion_notification translate="label">
+                    <label>Delete Account Request Notifications</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <admin_section translate="label">
+                            <label><![CDATA[<span style="font-size: 15px;"><b>Admin Notification</b></span>]]></label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </admin_section>
+                        <admin translate="label">
+                            <label>Notify Administrator Each Time User Requests to Delete Account</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </admin>
+                        <to translate="label">
+                            <label>Send Email to</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <admin>1</admin>
+                            </depends>
+                        </to>
+                        <admin_template translate="label">
+                            <label>Email Template for Administrator</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <admin>1</admin>
+                            </depends>
+                        </admin_template>
+                        <customer_section translate="label">
+                            <label><![CDATA[<br><span style="font-size: 15px;"><b>Customer Notification</b></span>]]></label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer_section>
+                        <subtitle_approve translate="label">
+                            <label><![CDATA[<span style="font-size: 15px;"><u>Approve Notification</u></span>]]></label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </subtitle_approve>
+                        <from translate="label">
+                            <label>Approve Notification Email Sender for Сustomers</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </from>
+                        <reply_to translate="label comment">
+                            <label>Approve Email Reply To</label>
+                            <comment><![CDATA[Specify the separate email address for replies or leave blank to use the sender address instead.<br>You can set only one email address in this field.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </reply_to>
+                        <template translate="label">
+                            <label>Approve Notification Email Template for Сustomers</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </template>
+                        <subtitle_deny translate="label">
+                            <label><![CDATA[<br><span style="font-size: 15px;"><u>Deny Notification</u></span>]]></label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </subtitle_deny>
+                        <deny_from translate="label">
+                            <label>Deny Notification Email Sender for Сustomers</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </deny_from>
+                        <deny_reply_to translate="label comment">
+                            <label>Deny Email Reply To</label>
+                            <comment><![CDATA[Specify the separate email address for replies or leave blank to use the sender address instead.<br>You can set only one email address in this field.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </deny_reply_to>
+                        <deny_template translate="label">
+                            <label>Deny Notification Email Template for Сustomers</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </deny_template>
+                    </fields>
+                </deletion_notification>
+                <consent_notification translate="label">
+                    <label>Consent Request Notifications</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <from translate="label">
+                            <label>Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </from>
+                        <reply_to translate="label comment">
+                            <label>Email Reply To</label>
+                            <comment><![CDATA[Specify the separate email address for replies or leave blank to use the sender address instead.<br>You can set only one email address in this field.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </reply_to>
+                        <template translate="label">
+                            <label>Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </template>
+                    </fields>
+                </consent_notification>
+                <privacy_checkbox translate="label">
+                    <label>Privacy Checkbox</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <eea_only translate="label">
+                            <label><![CDATA[Display Only for <a href="https://en.wikipedia.org/wiki/European_Economic_Area" target="_blank">EEA</a> Countries]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </eea_only>
+                        <eea_countries translate="label comment">
+                            <label>EEA Countries</label>
+                            <comment>Privacy checkboxes will be displayed only for selected countries.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country_full</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <eea_only>1</eea_only>
+                            </depends>
+                        </eea_countries>
+                        <consent_text translate="label comment">
+                            <label>Consent Text</label>
+                            <comment>You can use any HTML-tags in this field. Please, mind the security.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </consent_text>
+                        <display_at_registration translate="label">
+                            <label>Display at Registration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_at_registration>
+                        <display_at_checkout translate="label">
+                            <label>Display at Checkout</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_at_checkout>
+                        <display_at_newsletter translate="label">
+                            <label>Display at Newsletter Subscription</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_at_newsletter>
+                        <display_at_contact translate="label">
+                            <label>Display at Contact Us</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_at_contact>
+                    </fields>
+                </privacy_checkbox>
+                <cookie_policy translate="label">
+                    <label>Cookie Policy</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enable Cookie Policy Bar</label>
+                            <comment><![CDATA[<b>Notification Bar</b> is Available only on <b>Magento 1.7.0.0</b> and above]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>amgdpr/source_cookie</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enabled>
+                        <notification_text translate="label comment">
+                            <label>Cookie Policy Text</label>
+                            <comment>You can use any HTML-tags in this field. Please, mind the security.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                        </notification_text>
+                        <confirmation_text translate="label comment">
+                            <label>Cookie Policy Text</label>
+                            <comment>You can use any HTML-tags in this field. Please, mind the security.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>2</enabled>
+                            </depends>
+                        </confirmation_text>
+                        <confirmation_cookies translate="label comment">
+                            <label>Cookies to Exclude</label>
+                            <comment>These cookies won`t be used if a visitor rejects the cookie policy.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>2</enabled>
+                            </depends>
+                        </confirmation_cookies>
+                    </fields>
+                </cookie_policy>
+                <cookie_bar_customisation translate="label">
+                    <label>Cookie Policy Bar Customization</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <display_up translate="label">
+                            <label>Cookie Policy Bar Location</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>amgdpr/source_location</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Set location of cookie policy bar</comment>
+                        </display_up>
+                        <background_color translate="label">
+                            <label>Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Click the field to choose color</comment>
+                        </background_color>
+                        <text_color translate="label">
+                            <label>Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Click the field to choose color</comment>
+                        </text_color>
+                        <buttons_color translate="label">
+                            <label>Buttons Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Click the field to choose color</comment>
+                        </buttons_color>
+                        <buttons_text_color translate="label">
+                            <label>Buttons Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Click the field to choose color</comment>
+                        </buttons_text_color>
+                        <link_color translate="label">
+                            <label>Link Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Click the field to choose color</comment>
+                        </link_color>
+                    </fields>
+                </cookie_bar_customisation>
+            </groups>
+        </amgdpr>
+    </sections>
+</config>

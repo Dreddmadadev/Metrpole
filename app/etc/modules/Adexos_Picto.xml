@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_Picto>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Adexos_Picto>
+    </modules>
+</config>

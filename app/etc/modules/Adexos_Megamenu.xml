@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_Megamenu>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Cmsmart_Megamenu/>
+            </depends>
+        </Adexos_Megamenu>
+    </modules>
+</config>

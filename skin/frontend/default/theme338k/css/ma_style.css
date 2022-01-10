@@ -1,0 +1,26 @@
+.rgpd-cookies-table {
+  margin: 20px 0;
+}
+.rgpd-cookies-table td {
+  padding: 5px;
+  border: 1px solid #cccccc;
+}
+.footer_newsletter #amprivacy-checkbox {
+  clear: both;
+}
+.footer_newsletter #amprivacy-checkbox .required a:hover {
+  color: white;
+}
+.footer_newsletter #amprivacy-checkbox .input-box {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.footer_newsletter #amprivacy-checkbox .input-box + label {
+  vertical-align: bottom;
+  margin-bottom: 0;
+}
+.qquoteadv-index-index .installed-package-default .data-table td.product-quote-image {
+  max-width: 200px;
+}
+/*# sourceMappingURL=ma_style.css.map */

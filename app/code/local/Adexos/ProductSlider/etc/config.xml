@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_ProductSlider>
+            <version>0.1.0</version>
+        </Adexos_ProductSlider>
+    </modules>
+    <global>
+        <models>
+            <adexos_productslider>
+                <class>Adexos_ProductSlider_Model</class>
+                <resourceModel>adexos_productslider_resource</resourceModel>
+            </adexos_productslider>
+            <adexos_productslider_resource>
+                <class>Adexos_ProductSlider_Model_Resource</class>
+            </adexos_productslider_resource>
+        </models>
+        <blocks>
+            <adexos_productslider>
+                <class>Adexos_ProductSlider_Block</class>
+            </adexos_productslider>
+        </blocks>
+        <helpers>
+            <adexos_productslider>
+                <class>Adexos_ProductSlider_Helper</class>
+            </adexos_productslider>
+        </helpers>
+    </global>
+</config>

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_Casestudy>
+            <version>0.3.0</version>
+        </Adexos_Casestudy>
+    </modules>
+    <global>
+        <models>
+            <adexos_casestudy>
+                <class>Adexos_Casestudy_Model</class>
+                <resourceModel>adexos_casestudy_resource</resourceModel>
+            </adexos_casestudy>
+            <adexos_casestudy_resource>
+                <class>Adexos_Casestudy_Model_Resource</class>
+                <entities>
+                    <adexos_casestudy>
+                        <table>adexos_casestudy</table>
+                    </adexos_casestudy>
+                    <product>
+                        <table>adexos_casestudy_products</table>
+                    </product>
+                </entities>
+            </adexos_casestudy_resource>
+        </models>
+        <blocks>
+            <adexos_casestudy>
+                <class>Adexos_Casestudy_Block</class>
+            </adexos_casestudy>
+        </blocks>
+        <helpers>
+            <adexos_casestudy>
+                <class>Adexos_Casestudy_Helper</class>
+            </adexos_casestudy>
+        </helpers>
+        <resources>
+            <adexos_casestudy_setup>
+                <setup>
+                    <module>Adexos_Casestudy</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </adexos_casestudy_setup>
+        </resources>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <adexos_casestudy before="Mage_Adminhtml">Adexos_Casestudy_Adminhtml</adexos_casestudy>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <adexos_casestudy>
+                    <file>casestudy.xml</file>
+                </adexos_casestudy>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

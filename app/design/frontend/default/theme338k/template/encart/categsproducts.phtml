@@ -1,0 +1,140 @@
+<?php
+$sliders = $this->getSlidersHome();
+$imageHelper = Mage::helper('catalog/image');
+$phelper = Mage::helper("adexos_product");
+?>
+
+<?php foreach ($sliders as $key => $slider): ?>
+    <?php if (count($slider->getProducts()) > 0): ?>
+        <?php $nameSlider = $slider->getName() ?>
+        <div class="encart-categ encart-categ-list encart<?= $key ?>">
+            <div class="title-encart-home"><?= $nameSlider ?></div>
+            <div class="container-products">
+                <?php foreach ($slider->getProducts() as $product): ?>
+                    <?php
+                    $urlAddTo = Mage::helper('checkout/cart')->getAddUrl($product);
+                    $urlProduct = $product->getProductUrl();
+
+                    $id = $product->getId();
+                    $_price = 0;
+                    $pricevalue = $this->helper('tax')->getPrice($product, $product->getFinalPrice(), false); // price HT
+
+                    $class = null;
+                    $oldpricevalue = 0;
+                    if ($product->isConfigurable()) {
+                        $cheaperProduct = $phelper->getChildProductWithLowestPrice($product, "price");
+
+                        if ($cheaperProduct) {
+                            $_price = $cheaperProduct->getPrice();
+                            $cheaperProduct = $phelper->getChildProductWithLowestPrice($product, "price");
+                            if ($product->getSpecialPrice() || $phelper->getSpecialPrice($id)) {
+                                $cheaperProduct = $phelper->getChildProductWithLowestPrice($product, "price");
+                                $pricevalue = $this->helper('tax')->getPrice($product, $phelper->getSpecialPrice($id), false); // price HT
+                                $class = "specialPrice";
+                                $oldpricevalue = $this->helper('tax')->getPrice($product, $cheaperProduct->getPrice(), false);
+                                $oldprice = Mage::helper('core')->currency($oldpricevalue);
+                            }
+                        } else {
+                            $price = 0;
+                        }
+
+                    } else {
+                        $_price = $product->getPrice();
+                        if ($product->getSpecialPrice()) {
+                            $pricevalue = $this->helper('tax')->getPrice($product, $product->getSpecialPrice(), false); // price HT
+                            $class = "specialPrice";
+                            $oldpricevalue = $this->helper('tax')->getPrice($product, $product->getPrice(), false);
+                            $oldprice = Mage::helper('core')->currency($oldpricevalue);
+                        }
+                    }
+
+                    $price = Mage::helper('core')->currency($pricevalue);
+
+                    ?>
+                    <div class="product">
+                    <span class="product-image">
+                        <?php if ($class != null && $oldpricevalue != 0): ?>
+                            <div class="percentage"><?= (int)((($oldpricevalue - $pricevalue) * 100) / $oldpricevalue) ?><span
+                                        class="percent">%</span></div>
+                        <?php endif; ?>
+                        <a class="lazyload" data-src="<?= $imageHelper->init($product, 'thumbnail') ?>"
+                           href="<?= $urlProduct ?>"
+                           style="
+                                   display:block;
+                                   width: 100%;
+                                   height: 260px;
+                                   background-position: center;
+                                   background-size: cover;">
+                            </a>
+                    </span>
+                        <span class="product-name"><a href="<?= $urlProduct ?>"><?= $product->getName() ?></a></span>
+
+                        <span class="price <?= $class ?>">
+                             <?php if ($product->isConfigurable() && $product->getFinalPrice() !== 0): ?>
+                                 <span class="apartirde"><?= $this->__('À partir de ') ?></span>
+                             <?php else: ?>
+                                 <span class="apartirde"></span>
+                             <?php endif; ?>
+
+                            <?php if ($product->getFinalPrice() !== 0): ?>
+                                <?= $price ?>
+                                <span class="ht">HT</span>
+                            <?php else: ?>
+                                <span class="price">&nbsp</span>
+                                <span class="ht">&nbsp</span>
+                            <?php endif; ?>
+                        </span>
+
+                        <span class="old-price">
+                        <?php if ($class != null): ?>
+                            <?= $oldprice; ?>
+                            <span class="ht">HT</span>
+                        <?php endif; ?>
+                        </span>
+                        <?php if ($product->getRatingSummary()): ?>
+                            <?php echo $this->getReviewsSummaryHtml($product, 'short') ?>
+                        <?php endif; ?>
+
+                        <div class="actions">
+                            <?php echo Mage::app()->getLayout()->createBlock('qquoteadv/qquotebtn')
+                                ->setData('product', $product)
+                                ->setTemplate('qquoteadv/catalog/product/c2qBtnList.phtml')
+                                ->toHtml(); ?>
+                            <ul class="add-to-links">
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                    <li><a title="<?php echo $this->__('Add to Wishlist') ?>"
+                                           href="<?php echo $this->helper('wishlist')->getAddUrl($product) ?>"
+                                           rel="tooltip"
+                                           class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endforeach; ?>
+
+<script>
+    jQuery(document).ready(function () {
+        if (jQuery(document).width() < 760) {
+            jQuery('.container-products').bxSlider({
+                slideWidth: 290,
+                pager: false,
+                nextText: "",
+                prevText: "",
+                onSlideAfter: function ($slideElement) {
+                    let $lazyElem = $slideElement.find('.lazyload');
+                    if (typeof $lazyElem.attr('data-src') !== typeof undefined && $lazyElem.attr('data-src') !== false) {
+                        $lazyElem.css('background-image', 'url(' + $lazyElem.attr('data-src') + ')');
+                        $lazyElem.removeAttr('data-src');
+                    }
+                }
+            });
+        }
+
+    });
+</script>

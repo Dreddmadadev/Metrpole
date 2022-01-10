@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Ma_Indexer>
+            <version>1.0.0</version>
+        </Ma_Indexer>
+    </modules>
+    <global>
+        <models>
+            <ma_indexer>
+                <class>Ma_Indexer_Model</class>
+            </ma_indexer>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <ma_indexer>
+                <schedule>
+                    <cron_expr>0 2 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>ma_indexer/cron::run</model>
+                </run>
+            </ma_indexer>
+        </jobs>
+    </crontab>
+</config>

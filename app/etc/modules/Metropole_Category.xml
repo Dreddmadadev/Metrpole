@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Metropole_Category>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Metropole_Category>
+    </modules>
+</config>

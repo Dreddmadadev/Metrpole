@@ -1,0 +1,215 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php $video = $_product->getLinkVideo() ?: false; ?>
+<?php $urlIframe = str_replace('http://youtu.be/', 'https://www.youtube.com/embed/', $video); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<div class="product-view">
+    <div class="product-essential">
+        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post"
+              id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+            <?php echo $this->getBlockHtml('formkey') ?>
+            <div class="no-display">
+                <input type="hidden" name="product" value="<?php echo $_product->getId() ?>"/>
+                <input type="hidden" name="related_product" id="related-products-field" value=""/>
+            </div>
+            <div class="product-img-box">
+
+                <?php if ($video): ?>
+                    <div class="link-video" data-url="<?= $video ?>"></div>
+                <?php endif; ?>
+                <?php echo $this->getChildHtml('media') ?>
+            </div>
+            <div class="product-shop">
+                <div class="product-name">
+                    <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                </div>
+                <?php echo $this->getChildHtml('product_type_data') ?>
+                <?php echo $this->getTierPriceHtml() ?>
+
+                <?php if ($_product->getPicto()): ?>
+                    <?php $pictos = explode(',', $_product->getPicto()) ?>
+                    <div class="pictos">
+                        <?php foreach ($pictos as $picto): ?>
+                            <?php $pictoObject = Mage::getModel('adexos_picto/picto')->load($picto) ?>
+                            <img src="<?= Mage::getBaseUrl('media') . $pictoObject->getImage() ?> " alt="<?php echo $pictoObject->getName(); ?>" height="82">
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                <div class="clear"></div>
+                <?php if ($_product->getShortDescription()): ?>
+                    <?php
+                    $short_desc = $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description');
+                    ?>
+                    <div class="short-description">
+                        <h2><?php echo $this->__('Quick Overview') ?></h2>
+                        <div class="std"><?= $short_desc ?>...
+                        </div>
+                        <a href="#detail" class="readmore-detail">Lire la suite ... </a>
+                    </div>
+                <?php if ($_product->getTypeId() == 'simple'): ?>
+                    <div class="product-simple-sku">
+                        <p><?= $this->__("Référence") . " " ?> :
+                            <span><?php echo ($_product->getSkumetro() != null) ? $_product->getSkumetro() : $_product->getSku() ?></span>
+                        </p>
+                    </div>
+                <?php endif; ?>
+                    <script>
+                        var txt = jQuery('.short-description .std').text().substring(0, 600);
+                        jQuery('.short-description .std').html(txt + "...");
+                    </script>
+                <?php endif; ?>
+                <div class="clear"></div>
+                <?php echo $this->getChildHtml('extrahint') ?>
+                <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                    <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                <?php endif; ?>
+
+                <?php if (!$this->hasOptions()): ?>
+                    <div class="add-to-box">
+                        <?php if ($_product->isSaleable()): ?>
+
+                            <?php echo $this->getLayout()->createBlock('catalog/product_view')->setTemplate('catalog/product/view/options/wrapper/bottom.phtml')->tohtml(); ?>
+
+                            <?php echo $this->getChildHtml('addtocart') ?>
+                            <?php if ($this->helper('wishlist')->isAllow() || $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                                <span class="or"><?php echo $this->__('OR') ?></span>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                        <?php echo $this->getChildHtml('addto') ?>
+                    </div>
+                    <?php echo $this->getChildHtml('extra_buttons') ?>
+                <?php elseif (!$_product->isSaleable()): ?>
+                    <div class="add-to-box">
+                        <?php echo $this->getChildHtml('addto') ?>
+                    </div>
+                <?php elseif ($this->hasOptions() && $_product->isSaleable()): ?>
+                    <div class="add-to-box">
+                        <?php if ($_product->isSaleable()): ?>
+                            <?php 
+                                $_children = $_product->getTypeInstance()->getUsedProducts($_product);
+                                $have_price = false;
+                                foreach ($_children as $child) {
+                                    if ( (int)$child->getPrice() > 0 ) {
+                                        $have_price = true;
+                                    }
+                                }
+                            ?>
+                            <?php if ( !$have_price ) { ?>
+                                <?php echo $this->getLayout()->createBlock('catalog/product_view')->setTemplate('catalog/product/view/options/wrapper/bottom.phtml')->tohtml(); ?>
+
+                                <?php echo $this->getChildHtml('addtocart') ?>
+                                <?php if ($this->helper('wishlist')->isAllow() || $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                                    <span class="or"><?php echo $this->__('OR') ?></span>
+                                <?php endif; ?>
+                            <?php } ?>
+                        <?php endif; ?>
+                        <?php echo $this->getChildHtml('addto') ?>
+                    </div>
+                    <?php echo $this->getChildHtml('extra_buttons') ?>                
+                <?php endif; ?>
+
+                <?php echo $this->getChildHtml('other'); ?>
+
+                <!-- <div class="row-product">
+                        <?php /*echo $this->getReviewsSummaryHtml($_product, false, true) */ ?>
+
+                        <?php /*if ($this->canEmailToFriend()): */ ?>
+                            <p class="email-friend"><a
+                                        href="<?php /*echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) */ ?>"><?php /*echo $this->__('Email to a Friend') */ ?></a>
+                            </p>
+                        <?php /*endif; */ ?>
+                    </div>
+                    --><?php /*echo $this->getChildHtml('alert_urls') */ ?>
+
+            </div>
+            <div class="clearer"></div>
+            <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+            <?php endif; ?>
+
+
+            <div class="links-responsive">
+                <?php echo $this->getLayout()->createBlock('catalog/product_view')->setTemplate('catalog/product/view/addto.phtml')->tohtml(); ?>
+            </div>
+        </form>
+    </div>
+    <div class="product-collateral">
+        <div id="detail" class="ancrefake-detail"></div>
+        <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html): ?>
+            <div class="box-collateral <?php echo "box-{$alias}" ?>">
+                <?php if ($title = $this->getChildData($alias, 'title')): ?>
+                    <h2><?php echo $this->escapeHtml($title); ?></h2>
+                <?php endif; ?>
+                <?php echo $html; ?>
+            </div>
+        <?php endforeach; ?>
+
+        <?php //echo $this->getChildHtml('product_additional_data') ?>
+        <?php $attStuff = $_product->getData(); ?>
+        <?php if (!empty($attStuff['videoid'])): ?>
+            <div class="video-box box-collateral">
+                <h2><?php echo $this->__('Video') ?></h2>
+                <div class="box-collateral-content">
+                    <div class="video">
+                        <iframe src="<?php echo $attStuff['videoid']; ?>?wmode=opaque" frameborder="0"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+<?php echo $this->getChildHtml('casestudy') ?>
+<?php echo $this->getChildHtml('upsell_products') ?>
+
+<?php $htmlVideo = "<div class='container-popup-video'><div class='overlay'></div><div class='video-popup'><i class='close'></i><iframe src='$urlIframe' allowfullscreen='' width='100%' height='100%' frameborder='0'></iframe></div></div>"; ?>
+
+
+<script>
+    jQuery(document).ready(function () {
+        jQuery('.product-img-box').on('click', '.link-video', function () {
+            jQuery('body .page').append("<?= $htmlVideo ?>");
+            jQuery('.container-popup-video').on('click', '.close', function () {
+                jQuery('.container-popup-video').remove();
+            })
+        });
+
+
+    })
+</script>

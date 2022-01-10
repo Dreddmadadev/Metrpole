@@ -1,0 +1,14 @@
+<?php
+
+if ($this->getLayout()->createBlock('page/html_header')->getIsHomePage()): ?>
+    <h1 class="logo"><strong><?php echo $this->getLayout()->createBlock('page/html_header')->getLogoAlt() ?> - <?= $this->__("Fournisseur de mobilier urbain") ?></strong><a
+            href="<?php echo $this->getLayout()->createBlock('page/html_header')->getUrl('') ?>"
+            title="<?php echo $this->getLayout()->createBlock('page/html_header')->getLogoAlt() ?> - <?= $this->__("Fournisseur de mobilier urbain") ?>"><img
+                src="<?php echo $this->getLayout()->createBlock('page/html_header')->getLogoSrc() ?>"
+                alt="<?php echo $this->getLayout()->createBlock('page/html_header')->getLogoAlt() ?> - <?= $this->getLayout()->createBlock('page/html_header')->__("Fournisseur de mobilier urbain") ?>"/></a></h1>
+<?php else: ?>
+    <a href="<?php echo $this->getLayout()->createBlock('page/html_header')->getUrl('') ?>" title="<?php echo $this->getLayout()->createBlock('page/html_header')->getLogoAlt() ?>"
+       class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img
+            src="<?php echo $this->getLayout()->createBlock('page/html_header')->getLogoSrc() ?>"
+            alt="<?php echo $this->getLayout()->createBlock('page/html_header')->getLogoAlt() ?>"/></a>
+<?php endif ?>

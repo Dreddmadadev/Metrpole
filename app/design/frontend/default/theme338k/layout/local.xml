@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    <cms_index_index>
+        <reference name="content">
+            <block type="adexos_productslider/product" name="encart_categs_products" as="encart_categs_products"
+                   template="encart/categsproducts.phtml" before="-"></block>
+        </reference>
+    </cms_index_index>
+
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/productview.js</name>
+            </action>
+        </reference>
+    </catalog_product_view>
+
+    <default>
+        <remove name="right.poll"/>
+
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/cmsmart/megamenu/megamenu.css</stylesheet>
+            </action>
+        </reference>
+    </default>
+</layout>

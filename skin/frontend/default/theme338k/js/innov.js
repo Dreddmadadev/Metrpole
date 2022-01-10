@@ -1,0 +1,1 @@
+function slickInnov(){jQuery(window).width()<=651?jQuery(".product-innov-container").slick({dots:!1,infinite:!0,slidesToShow:1,slidesToScroll:1,variableWidth:!0,arrows:!1}):jQuery(".product-innov-container").slick("unslick")}jQuery(document).ready(function(){jQuery(window).on("load resize",function(){slickInnov()})});

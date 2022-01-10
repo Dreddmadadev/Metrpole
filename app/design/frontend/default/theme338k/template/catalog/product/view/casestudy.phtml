@@ -1,0 +1,39 @@
+<?php
+$_product = $this->getCurrentproduct();
+$_casestudy = $this->getCasestudyByProduct($_product->getId());
+
+?>
+<?php if($_casestudy): ?>
+<div class="casestudy_container">
+    <div class="casestudy_wrapper">
+        <div class="casestudy_img">
+            <img src="<?= Mage::getBaseUrl('media') . $_casestudy->getImage() ?>">
+        </div>
+        <div class="casestudy_wrap_content">
+            <div class="casestudy_title"><?= $_casestudy->getTitle() ?></div>
+            <div class="casestudy_content"><?= $_casestudy->getDescription() ?></div>
+        </div>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function () {
+        if (jQuery(window).width() > 990) {
+            jQuery(".casestudy_wrap_content").each(function () {
+                var hContent = jQuery(this).outerHeight();
+                var hImg = jQuery(this).parent().parent().find('.casestudy_img').height();
+
+                if (hContent > hImg) {
+                    var margin = (hContent - hImg) / 2;
+                    jQuery(this).parent().parent().find('.casestudy_img').css('margin-top', margin);
+                    jQuery(this).parent().parent().find('.casestudy_img').css('width', "50%");
+                    jQuery(this).css('width', "50%");
+                } else {
+                    var margin = (hImg - hContent) / 2;
+                    jQuery(this).css('margin-top', margin);
+                }
+            })
+        }
+    })
+</script>
+
+<?php endif; ?>

@@ -1,0 +1,81 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Gdpr
+ */
+?>
+<?php if ($this->getNeedShowBlock()): ?>
+    <div class="global-site-notice amgdpr-cookie" id="amgdpr-cookie-block">
+        <div class="notice-inner amgdpr-notice-inner">
+            <div class="notice-text amgdpr-notice-text"><?php echo $this->getText(); ?></div>
+            <div class="actions amgdpr-actions">
+                <?php if($this->getBarType() == Amasty_Gdpr_Model_Source_Cookie::GDPR_COOKIE_CONFIRMATION): ?>
+                    <button class="button amgdpr-button" onclick="window.amCookieCheck(true)"><span><span><?php echo $this->__('Allow'); ?></span></span></button>
+                    <button class="button amgdpr-button" onclick="window.amCookieCheck(false)"><span><span><?php echo $this->__('Disallow'); ?></span></span></button>
+                <?php elseif($this->getBarType() == Amasty_Gdpr_Model_Source_Cookie::GDPR_COOKIE_NOTIFICATION): ?>
+                    <button class="button amgdpr-button" onclick="window.amCookieCheck(true)"><span><span><?php echo $this->__('Accept'); ?></span></span></button>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        window.amCookieCheck =
+            function(answer) {
+                var value = '<?php echo $this::DISALLOW; ?>';
+                if (answer) {
+                    value = '<?php echo $this::ALLOW; ?>';
+                }
+                Mage.Cookies.set('<?php echo $this::IS_USER_ALLOWED_SAVE_COOKIE; ?>', value, new Date(new Date().getTime() + <?php echo $this->getCookieRestrictionLifetime() ?> * 1000));
+                if (Mage.Cookies.get('<?php echo $this::IS_USER_ALLOWED_SAVE_COOKIE; ?>')) {
+                    window.location.reload();
+                } else {
+                    window.location.href = '<?php echo Mage::getUrl('cms/index/noCookies')?>';
+                }
+            }
+        $('amgdpr-cookie-block').show();
+        /* ]]> */
+    </script>
+
+     <style>
+         <?php if($this->getBackgroundBarColor() || $this->getTextBarColor()): ?>
+             .global-site-notice.amgdpr-cookie {
+                 <?php if($this->getBarDisplayPosition()): ?>
+                     top: 0;
+                     bottom: auto;
+                 <?php endif; ?>
+                 <?php if($this->getBackgroundBarColor()): ?>
+                     background-color: #<?php echo $this->getBackgroundBarColor() ?>;
+                 <?php endif;
+                 if($this->getTextBarColor()): ?>
+                     color: #<?php echo $this->getTextBarColor() ?>;
+                 <?php endif; ?>
+             }
+         <?php endif;
+
+         if($this->getLinkBarColor()): ?>
+             .global-site-notice.amgdpr-cookie a{
+                 color: #<?php echo $this->getLinkBarColor() ?>;
+             }
+         <?php endif;
+
+         if($this->getButtonsBarColor() || $this->getButtonsTextBarColor()): ?>
+             .button.amgdpr-button {
+                 <?php if($this->getButtonsBarColor()): ?>
+                     background-color: #<?php echo $this->getButtonsBarColor() ?>;
+                 <?php endif;
+                 if($this->getButtonsTextBarColor()): ?>
+                     color: #<?php echo $this->getButtonsTextBarColor() ?>;
+                 <?php endif; ?>
+            }
+         <?php endif;
+
+         if($this->getButtonsBarColor()): ?>
+             .button.amgdpr-button:hover {
+                 background-color: #<?php echo $this->getButtonsBarColor() ?>;
+                 opacity: 0.9;
+             }
+         <?php endif; ?>
+     </style>
+<?php endif; ?>

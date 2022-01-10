@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+         <system>
+            <children>
+                <bnpmercanetcw translate="title" module="BNPMercanetCw">
+                    <title><![CDATA[BNP Paribas Mercanet]]></title>
+                    <action>adminhtml/configbnpmercanetcw</action>
+                    <sort_order>109</sort_order>
+                </bnpmercanetcw>
+            </children>
+         </system>
+    </menu>
+    <acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<bnpmercanetcw>
+                                <title><![CDATA[BNP Paribas Mercanet]]></title>
+                                <sort_order>16</sort_order>
+                            </bnpmercanetcw>
+							<config>
+								<children>
+									<bnpmercanetcw translate="title" module="BNPMercanetCw">
+										<title><![CDATA[BNP Paribas Mercanet]]></title>
+									</bnpmercanetcw>
+								</children>
+							</config>
+						</children>
+					</system>
+					<sales>
+						<children>
+							<bnpmercanetcw>
+                                <title><![CDATA[BNP Paribas Mercanet]]></title>
+                                <sort_order>16</sort_order>
+                                <children>
+                               		
+									<bnpmercanetcw_alias_manager translate="title" module="BNPMercanetCw">
+										<title><![CDATA[BNP Paribas Mercanet: Alias Management]]></title>
+									</bnpmercanetcw_alias_manager>
+									
+									
+								</children>
+                            </bnpmercanetcw>
+						</children>
+					</sales>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

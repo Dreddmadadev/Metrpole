@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Gdpr
+ */
+-->
+<config>
+    <placeholders>
+        <cookie_bar>
+            <block>amgdpr/cookie</block>
+            <name>amgdpr_cookie</name>
+            <template>amasty/gdpr/cookie.phtml</template>
+            <placeholder>COOKIE_BAR</placeholder>
+            <container>Amasty_Gdpr_Model_Container_Cookie</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </cookie_bar>
+    </placeholders>
+</config>

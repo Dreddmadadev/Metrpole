@@ -1,0 +1,30 @@
+{
+    "api_key": null,
+    "extra": null,
+    "maestria_url": null,
+    "allowed_ips": [
+        "127.0.0.1",
+        "212.198.111.86",
+        "82.127.183.7",
+        "94.125.167.113",
+        "178.170.108.16"
+    ],
+    "cron_enable": false,
+    "cron_disabled_until": "2022-07-02 12:27:00",
+    "document_root": "\/var\/www\/metropole\/www\/htdocs",
+    "environment": "production",
+    "framework": "Magento1",
+    "graylog_host": "graylog.nexylan.net",
+    "graylog_port": 12201,
+    "log_mail_from": "maestria@adexos.fr",
+    "log_mail_to": [
+        "dev@adexos.fr"
+    ],
+    "name": "Metropole-Equipements.com",
+    "root": "\/var\/www\/metropole\/www\/htdocs",
+    "slack_channel": null,
+    "slack_username": null,
+    "slack_webhook": null,
+    "url": "https:\/\/www.metropole-equipements.com",
+    "timezone": "Europe\/Paris"
+}

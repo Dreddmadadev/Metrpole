@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <captcha_configuration translate="label" module="adexos_contacts">
+            <label>Captcha</label>
+            <sort_order>1000</sort_order>
+        </captcha_configuration>
+    </tabs>
+    <sections>
+        <captcha_configuration translate="label" module="adexos_contacts">
+            <label>Configuration Captcha</label>
+            <tab>captcha_configuration</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <contacts translate="label" module="adexos_contacts">
+                    <label>Contacts</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <sitekey translate="label">
+                            <label>Clé du site Google ReCaptcha page contacts</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sitekey>
+                        <key translate="label">
+                            <label>Clé secrète Google ReCaptcha page contacts</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </key>
+                    </fields>
+                </contacts>
+                <newsletters translate="label" module="adexos_customcaptcha">
+                    <label>Newsletters</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <sitekey translate="label">
+                            <label>Clé du site Google ReCaptcha page newsletter</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sitekey>
+                        <key translate="label">
+                            <label>Clé secrète Google ReCaptcha page newsletter</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </key>
+                    </fields>
+                </newsletters>
+            </groups>
+        </captcha_configuration>
+    </sections>
+</config>

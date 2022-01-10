@@ -1,0 +1,183 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?rawsxs");
+  src: url("../fonts/icomoon.eot?rawsxs#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?rawsxs") format("truetype"), url("../fonts/icomoon.woff?rawsxs") format("woff"), url("../fonts/icomoon.svg?rawsxs#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^=icomoon-], [class*=" icomoon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon-user:before {
+  content: "";
+}
+
+.icomoon-search:before {
+  content: "";
+}
+
+.icomoon-box:before {
+  content: "";
+}
+
+.icomoon-bud:before {
+  content: "";
+}
+
+.icomoon-conveyor:before {
+  content: "";
+}
+
+.icomoon-credit-card:before {
+  content: "";
+}
+
+.icomoon-led-light:before {
+  content: "";
+}
+
+.icomoon-paper-plane-1:before {
+  content: "";
+}
+
+.icomoon-quality:before {
+  content: "";
+}
+
+.icomoon-shield:before {
+  content: "";
+}
+
+.icomoon-supermarket:before {
+  content: "";
+}
+
+.icomoon-telephone:before {
+  content: "";
+}
+
+.icomoon-thumbs-up-hand-symbol:before {
+  content: "";
+}
+
+.icomoon-truck:before {
+  content: "";
+}
+
+.page-title h1 {
+  text-align: center;
+}
+
+.title-container {
+  border-top: 1px dotted #d0d2cf;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #00A7D3;
+}
+
+.product-innov-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  flex-shrink: 3;
+}
+.product-innov-container .product-innov {
+  width: 269px;
+  display: flex;
+  margin-right: 23px;
+  flex-direction: column;
+  float: left;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #c4c4c4;
+  margin-bottom: 50px;
+}
+.product-innov-container .product-innov:hover {
+  border: 1px #4ba4ba solid;
+}
+.product-innov-container .product-innov img {
+  display: block;
+  height: 266px;
+  width: 266px;
+  background-position: center center;
+  background-size: cover;
+}
+.product-innov-container .product-innov .product-name {
+  padding: 10px;
+  max-width: 300px;
+  height: 70px;
+  border-top: 1px #C4C4C4 solid;
+}
+.product-innov-container .product-innov span {
+  font-weight: bold;
+  font-size: 15px;
+}
+.product-innov-container .product-innov span.price-container {
+  min-height: 49px;
+}
+.product-innov-container .product-innov span span.price {
+  padding: 7px 0 0;
+  font-size: 25px;
+  color: #292929;
+}
+.product-innov-container .product-innov a.product-link {
+  background: #00A7D3;
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 3px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 19px;
+  max-width: 200px;
+  margin: 15px auto;
+  bottom: 10px;
+  color: #FFF;
+}
+.product-innov-container .product-innov .apartirde {
+  display: block;
+  width: 100%;
+  font-size: 17px;
+  color: #777;
+  min-height: 20px;
+  margin-bottom: 5px;
+}
+.product-innov-container .product-innov .ht {
+  display: inline-block;
+  position: relative;
+  bottom: 1px;
+  font-size: 16px;
+  line-height: 16px;
+  vertical-align: super;
+  text-decoration: none;
+}
+.product-innov-container .product-innov .price-container {
+  min-height: 100px;
+}
+
+.category-innovations-smart-city .category-title, .category-innovations-smart-city .page-title {
+  margin: 0;
+}
+.category-innovations-smart-city .page-title h1 {
+  text-transform: capitalize;
+}
+.category-innovations-smart-city .category-description {
+  margin: 0 auto 25px;
+  width: 50%;
+  text-align: center;
+}
+
+/*# sourceMappingURL=innovation.css.map */

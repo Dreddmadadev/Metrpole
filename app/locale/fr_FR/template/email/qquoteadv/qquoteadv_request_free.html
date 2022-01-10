@@ -1,0 +1,39 @@
+<!--@subject {{var quote.getStoreGroupName()}}: New Quote request # {{var quote.increment_id}} @-->
+
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+    <table cellspacing="0" cellpadding="0" border="0" width="98%"
+           style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+        <tr>
+            <td align="center" valign="top">
+                <!-- [ header starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top"><a href="{{store url=''}}"><img src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr>
+                </table>
+                <!-- [ middle starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top">
+                            <p>
+                                <strong>Bonjour {{var customer.name}}</strong>,<br/><br>
+                                Merci pour votre demande de devis à {{var quote.getStoreGroupName()}}.<br><br>
+                                Dans les prochaines 24 heures, nous vous confirmerons notre offre.<br>
+                                Vous pouvez vérifier l'état de votre demande en vous <a href="{{store url='customer/account/'}}"
+                                                                                   style="color:#1E7EC8;">connectant à votre compte client</a>.<br><br>
+                                Si vous avez des questions concernant votre demande de devis, veuillez nous contacter à <a
+                                    href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a>
+                                ou par téléphone au <span class="nobr">{{config path='general/store_information/phone'}}</span>.
+                            </p><br>
+
+                            <p>Merci.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>               

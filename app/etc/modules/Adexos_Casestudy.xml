@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_Casestudy>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Adexos_Casestudy>
+    </modules>
+</config>

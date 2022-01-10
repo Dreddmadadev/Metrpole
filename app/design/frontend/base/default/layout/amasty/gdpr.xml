@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Gdpr
+ */
+-->
+
+<layout version="1.0">
+    <amgdpr_popup>
+        <reference name="before_body_end">
+            <block type="amgdpr/popup" name="privacy_policy_popup" template="amasty/gdpr/popup.phtml"/>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/amasty/gdpr/popup.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>js/amasty/amgdpr/main.js</name><params/></action>
+        </reference>
+    </amgdpr_popup>
+    <amgdpr_customer_settings>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/amasty/gdpr/settings.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>js/amasty/amgdpr/password.js</name><params/></action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="amgdpr/settings" name="privacy_settings" template="amasty/gdpr/settings.phtml"/>
+        </reference>
+    </amgdpr_customer_settings>
+    <customer_account_create>
+        <update handle="amgdpr_popup" />
+    </customer_account_create>
+    <checkout_onepage_index>
+        <update handle="amgdpr_popup" />
+    </checkout_onepage_index>
+    <oscheckout_index_index>
+        <update handle="amgdpr_popup" />
+    </oscheckout_index_index>
+    <firecheckout_index_index>
+        <update handle="amgdpr_popup" />
+    </firecheckout_index_index>
+    <opc_index_index>
+        <update handle="amgdpr_popup" />
+    </opc_index_index>
+    <onepagecheckout_index_index>
+        <update handle="amgdpr_popup" />
+    </onepagecheckout_index_index>
+    <gomage_checkout_onepage_index>
+        <update handle="amgdpr_popup" />
+    </gomage_checkout_onepage_index>
+    <onestepcheckout_index_index>
+        <update handle="amgdpr_popup" />
+    </onestepcheckout_index_index>
+    <typostores_onestepcheckout_index_index>
+        <update handle="amgdpr_popup" />
+    </typostores_onestepcheckout_index_index>
+    <paypal_express_review>
+        <update handle="amgdpr_popup" />
+    </paypal_express_review>
+    <checkout_multishipping_overview>
+        <update handle="amgdpr_popup" />
+    </checkout_multishipping_overview>
+    <sales_guest_view>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/amasty/gdpr/settings.css</stylesheet></action>
+        </reference>
+    </sales_guest_view>
+    <default>
+        <update handle="amgdpr_popup" />
+        <reference name="after_body_start">
+            <block type="amgdpr/cookie" name="amgdpr_cookie" template="amasty/gdpr/cookie.phtml" />
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/amasty/gdpr/cookie.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>js/amasty/amgdpr/cookie.js</name><params/></action>
+        </reference>
+    </default>
+</layout>

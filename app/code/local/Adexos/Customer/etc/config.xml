@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_Customer>
+            <version>0.1.0</version>
+        </Adexos_Customer>
+    </modules>
+    <global>
+        <helpers>
+            <adexos_customer>
+                <class>Adexos_Customer_Helper</class>
+            </adexos_customer>
+        </helpers>
+        <resources>
+            <adexos_customer_setup>
+                <setup>
+                    <module>Adexos_Customer</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </adexos_customer_setup>
+        </resources>
+    </global>
+</config>

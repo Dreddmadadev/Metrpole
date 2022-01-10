@@ -1,0 +1,30 @@
+{
+    "name": "adexos/metropole-equipements",
+    "authors": [
+        {
+            "name": "adexos",
+            "email": "dev@adexos.fr"
+        }
+    ],
+    "require": {
+        "spipu/html2pdf": "^5.1"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.adexos.fr"
+        }
+    ],
+
+    "scripts": {
+        "post-install-cmd": [
+            "Adexos\\Project\\Maestria\\Composer\\ScriptHandler::installMaestria"
+        ],
+        "post-update-cmd": [
+            "Adexos\\Project\\Maestria\\Composer\\ScriptHandler::updateMaestria"
+        ]
+    },
+    "require-dev": {
+        "adexos/package-analyzer": "^1.0"
+    }
+}

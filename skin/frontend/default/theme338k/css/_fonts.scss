@@ -1,0 +1,102 @@
+//@font-face {
+//  font-family: Roboto, sans-serif;
+//  src: url("../fonts/Roboto-Regular.eot?") format("eot"),
+//  url("../fonts/Roboto-Regular.woff2") format("woff2"),
+//  url("../fonts/Roboto-Regular.woff") format("woff"),
+//  url("../fonts/Roboto-Regular.ttf") format("truetype"),
+//  url("../fonts/Roboto-Regular.svg#Roboto-Regular") format("svg");
+//  font-weight: normal;
+//  font-style: normal;
+//}
+//
+//@font-face {
+//  font-family: Roboto, sans-serif;
+//  src: url("../fonts/Roboto-Medium.eot?") format("eot"),
+//  url("../fonts/Roboto-Medium.woff2") format("woff2"),
+//  url("../fonts/Roboto-Medium.woff") format("woff"),
+//  url("../fonts/Roboto-Medium.ttf") format("truetype"),
+//  url("../fonts/Roboto-Medium.svg#Roboto-Medium") format("svg");
+//  font-weight: normal;
+//  font-style: normal;
+//}
+//
+//@font-face {
+//  font-family: $font-condensed;
+//  src: url("../fonts/jaapokki-regular.eot") format("eot"),
+//  url("../fonts/jaapokki-regular.woff2") format("woff2"),
+//  url("../fonts/jaapokki-regular.woff") format("woff"),
+//  url("../fonts/jaapokki-regular.ttf") format("truetype"),
+//  url("../fonts/jaapokki-regular.svg") format("svg");
+//  font-weight: normal;
+//  font-style: normal;
+//}
+
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?rawsxs');
+  src:  url('../fonts/icomoon.eot?rawsxs#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?rawsxs') format('truetype'),
+  url('../fonts/icomoon.woff?rawsxs') format('woff'),
+  url('../fonts/icomoon.svg?rawsxs#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icomoon-"], [class*=" icomoon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon-user:before {
+  content: "\e900";
+}
+.icomoon-search:before {
+  content: "\e901";
+}
+.icomoon-box:before {
+  content: "\e902";
+}
+.icomoon-bud:before {
+  content: "\e903";
+}
+.icomoon-conveyor:before {
+  content: "\e904";
+}
+.icomoon-credit-card:before {
+  content: "\e905";
+}
+.icomoon-led-light:before {
+  content: "\e906";
+}
+.icomoon-paper-plane-1:before {
+  content: "\e907";
+}
+.icomoon-quality:before {
+  content: "\e908";
+}
+.icomoon-shield:before {
+  content: "\e909";
+}
+.icomoon-supermarket:before {
+  content: "\e90a";
+}
+.icomoon-telephone:before {
+  content: "\e90b";
+}
+.icomoon-thumbs-up-hand-symbol:before {
+  content: "\e90c";
+}
+.icomoon-truck:before {
+  content: "\e90d";
+}

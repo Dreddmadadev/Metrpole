@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<config>
+    <menu>
+        <cms>
+            <children>
+                <slide translate="title" module="adexos_homeslider">
+                    <sort_order>60</sort_order>
+                    <title>Home Slider</title>
+                    <action>adminhtml/slide</action>
+                </slide>
+            </children>
+        </cms>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <slide>
+                                <title>Slide</title>
+                            </slide>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

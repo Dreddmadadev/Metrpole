@@ -1,0 +1,26 @@
+<?php $_helper = $this->helper('metropole_category'); ?>
+
+<?php foreach ($_helper->getChildrenCategoryInnovationCollection() as $category): ?>
+    <?php $_productCollection = $_helper->getCategoryProductCollection($category) ?>
+    <h2 class="title-container"><?= $category->getName(); ?></h2>
+    <div class="product-innov-container">
+        <?php foreach ($_productCollection as $product): ?>
+            <div class="product-innov">
+                <a href="<?= $product->getUrlPath(); ?>">
+                    <img src="<?= $_helper->getProductImage($product) ?>" alt="<?php echo $product->getName(); ?>"/>
+                </a>
+                <span class="product-name"><?= $product->getName(); ?></span>
+                <span class="price-container">
+                <?php if (round($product->getFinalPrice()) > 0): ?>
+                    <span class="apartirde"><?= $this->__('À partir de ') ?></span>
+                    <span class="price">
+                        <?= Mage::helper('core')->formatPrice($product->getFinalPrice(), false); ?>
+                    </span>
+                    <span class="ht"><?= $this->__('HT') ?></span></span>
+                <?php endif; ?>
+                </span>
+                <a class="product-link" href="<?= $product->getUrlPath(); ?>"><?= $this->__('Voir le produit') ?></a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endforeach; ?>

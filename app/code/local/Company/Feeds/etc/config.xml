@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Company_Feeds>
+            <version>1.0.0</version>
+        </Company_Feeds>
+    </modules>
+    <global>
+        <helpers>
+            <companyfeeds>
+                <class>Company_Feeds_Helper</class>
+            </companyfeeds>
+        </helpers>
+        <models>
+            <companyfeeds>
+                <class>Company_Feeds_Model</class>
+            </companyfeeds>
+            <rocketshoppingfeeds>
+                <rewrite>
+                    <feed_type>Company_Feeds_Model_Feed_Type</feed_type>
+                </rewrite>
+            </rocketshoppingfeeds>
+        </models>
+    </global>
+</config>

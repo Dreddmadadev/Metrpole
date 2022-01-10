@@ -1,0 +1,145 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$btn-news-name: 'btn_news';
+$btn-news-x: 0px;
+$btn-news-y: 31px;
+$btn-news-offset-x: 0px;
+$btn-news-offset-y: -31px;
+$btn-news-width: 1px;
+$btn-news-height: 50px;
+$btn-news-total-width: 40px;
+$btn-news-total-height: 81px;
+$btn-news-image: '/skin/frontend/default/theme338k/images/sprites/icons.png';
+$btn-news: (0px, 31px, 0px, -31px, 1px, 50px, 40px, 81px, '/skin/frontend/default/theme338k/images/sprites/icons.png', 'btn_news', );$ico-arrow-menu-name: 'ico_arrow_menu';
+$ico-arrow-menu-x: 12px;
+$ico-arrow-menu-y: 19px;
+$ico-arrow-menu-offset-x: -12px;
+$ico-arrow-menu-offset-y: -19px;
+$ico-arrow-menu-width: 8px;
+$ico-arrow-menu-height: 3px;
+$ico-arrow-menu-total-width: 40px;
+$ico-arrow-menu-total-height: 81px;
+$ico-arrow-menu-image: '/skin/frontend/default/theme338k/images/sprites/icons.png';
+$ico-arrow-menu: (12px, 19px, -12px, -19px, 8px, 3px, 40px, 81px, '/skin/frontend/default/theme338k/images/sprites/icons.png', 'ico_arrow_menu', );
+$ico-arrow-panier-name: 'ico_arrow_panier';
+$ico-arrow-panier-x: 20px;
+$ico-arrow-panier-y: 19px;
+$ico-arrow-panier-offset-x: -20px;
+$ico-arrow-panier-offset-y: -19px;
+$ico-arrow-panier-width: 8px;
+$ico-arrow-panier-height: 3px;
+$ico-arrow-panier-total-width: 40px;
+$ico-arrow-panier-total-height: 81px;
+$ico-arrow-panier-image: '/skin/frontend/default/theme338k/images/sprites/icons.png';
+$ico-arrow-panier: (20px, 19px, -20px, -19px, 8px, 3px, 40px, 81px, '/skin/frontend/default/theme338k/images/sprites/icons.png', 'ico_arrow_panier', );
+$ico-compte-name: 'ico_compte';
+$ico-compte-x: 22px;
+$ico-compte-y: 0px;
+$ico-compte-offset-x: -22px;
+$ico-compte-offset-y: 0px;
+$ico-compte-width: 18px;
+$ico-compte-height: 18px;
+$ico-compte-total-width: 40px;
+$ico-compte-total-height: 81px;
+$ico-compte-image: '/skin/frontend/default/theme338k/images/sprites/icons.png';
+$ico-compte: (22px, 0px, -22px, 0px, 18px, 18px, 40px, 81px, '/skin/frontend/default/theme338k/images/sprites/icons.png', 'ico_compte', );
+$ico-home-name: 'ico_home';
+$ico-home-x: 0px;
+$ico-home-y: 19px;
+$ico-home-offset-x: 0px;
+$ico-home-offset-y: -19px;
+$ico-home-width: 12px;
+$ico-home-height: 12px;
+$ico-home-total-width: 40px;
+$ico-home-total-height: 81px;
+$ico-home-image: '/skin/frontend/default/theme338k/images/sprites/icons.png';
+$ico-home: (0px, 19px, 0px, -19px, 12px, 12px, 40px, 81px, '/skin/frontend/default/theme338k/images/sprites/icons.png', 'ico_home', );
+$ico-shopping-bag-name: 'ico_shopping_bag';
+$ico-shopping-bag-x: 0px;
+$ico-shopping-bag-y: 0px;
+$ico-shopping-bag-offset-x: 0px;
+$ico-shopping-bag-offset-y: 0px;
+$ico-shopping-bag-width: 22px;
+$ico-shopping-bag-height: 19px;
+$ico-shopping-bag-total-width: 40px;
+$ico-shopping-bag-total-height: 81px;
+$ico-shopping-bag-image: '/skin/frontend/default/theme338k/images/sprites/icons.png';
+$ico-shopping-bag: (0px, 0px, 0px, 0px, 22px, 19px, 40px, 81px, '/skin/frontend/default/theme338k/images/sprites/icons.png', 'ico_shopping_bag', );
+$spritesheet-width: 40px;
+$spritesheet-height: 81px;
+$spritesheet-image: '/skin/frontend/default/theme338k/images/sprites/icons.png';
+$spritesheet-sprites: ($btn-news, $ico-arrow-menu, $ico-arrow-panier, $ico-compte, $ico-home, $ico-shopping-bag, );
+$spritesheet: (40px, 81px, '/skin/frontend/default/theme338k/images/sprites/icons.png', $spritesheet-sprites, );
+
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

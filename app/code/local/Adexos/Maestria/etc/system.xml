@@ -1,0 +1,40 @@
+<config>
+    <tabs>
+        <adexos_maestria_tab translate="label" module="adexos_maestria">
+            <label>Adexos</label>
+            <sort_order>99999</sort_order>
+        </adexos_maestria_tab>
+    </tabs>
+    <sections>
+        <adexos_maestria_config translate="label" module="adexos_maestria">
+            <label>Maestria</label>
+            <tab>adexos_maestria_tab</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <logs translate="label">
+                    <label>Gestion des logs</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <nb_days translate="label">
+                            <label>Nb jours de sauvegarde des reports</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Nb de jours de sauvegarde des reports (table report_event)</comment>
+                        </nb_days>
+                    </fields>
+                </logs>
+            </groups>
+        </adexos_maestria_config>
+    </sections>
+</config>

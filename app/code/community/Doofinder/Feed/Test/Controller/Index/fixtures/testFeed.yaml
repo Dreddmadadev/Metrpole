@@ -1,0 +1,3 @@
+-
+config:
+    default/catalog/price/scope: 1 # Set price scope to website

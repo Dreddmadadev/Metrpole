@@ -1,0 +1,115 @@
+.page-title h1 {
+  text-align: center;
+}
+
+.title-container {
+  border-top: 1px dotted #d0d2cf;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: $primary-color;
+}
+
+.product-innov-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  flex-shrink: 3;
+
+  .product-innov {
+    width: 269px;
+    display: flex;
+    margin-right: 23px;
+    flex-direction: column;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #c4c4c4;
+    margin-bottom: 50px;
+
+    &:hover {
+      border: 1px #4ba4ba solid;
+    }
+
+    img {
+      display: block;
+      height: 266px;
+      width: 266px;
+      background-position: center center;
+      background-size: cover;
+    }
+
+    .product-name {
+      padding: 10px;
+      max-width: 300px;
+      height: 70px;
+      border-top: 1px #C4C4C4 solid;
+    }
+    span {
+      font-weight: bold;
+      font-size: 15px;
+
+      &.price-container {
+        min-height: 49px;
+      }
+
+      span.price {
+        padding: 7px 0 0;
+        font-size: 25px;
+        color: #292929;
+      }
+    }
+    a.product-link {
+      background: $primary-color;
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 3px;
+      font-family: Jaapokki;
+      font-size: 19px;
+      max-width: 200px;
+      margin: 15px auto;
+      bottom: 10px;
+      color: #FFF;
+    }
+    .apartirde {
+      display: block;
+      width: 100%;
+      font-size: 17px;
+      color: #777;
+      min-height: 20px;
+      margin-bottom: 5px;
+    }
+    .ht {
+      display: inline-block;
+      position: relative;
+      bottom: 1px;
+      font-size: 16px;
+      line-height: 16px;
+      vertical-align: super;
+      text-decoration: none;
+    }
+    .price-container {
+      min-height: 100px;
+    }
+  }
+}
+
+.category-innovations-smart-city {
+  .category-title, .page-title {
+    margin: 0;
+  }
+
+  .page-title {
+    h1 {
+      text-transform: capitalize;
+    }
+  }
+
+  .category-description {
+    margin: 0 auto 25px;
+    width: 50%;
+    text-align: center;
+  }
+}

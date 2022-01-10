@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_Megamenu>
+            <version>0.1.0</version>
+        </Adexos_Megamenu>
+    </modules>
+    <global>
+        <blocks>
+            <megamenu>
+                <rewrite>
+                    <navigation>Adexos_Megamenu_Block_Navigation</navigation>
+                </rewrite>
+            </megamenu>
+        </blocks>
+        <resources>
+            <adexos_megamenu_setup>
+                <setup>
+                    <module>Adexos_Megamenu</module>
+                </setup>
+            </adexos_megamenu_setup>
+        </resources>
+    </global>
+</config>

@@ -1,0 +1,12 @@
+.amgdpr-actions {
+    margin-top: 10px;
+}
+
+.amgdpr-cookie {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1000;
+    display: none;
+}

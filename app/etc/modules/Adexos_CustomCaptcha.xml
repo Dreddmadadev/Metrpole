@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_CustomCaptcha>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Adexos_Contacts/>
+                <Tm_NewsletterPopup/>
+            </depends>
+        </Adexos_CustomCaptcha>
+    </modules>
+</config>

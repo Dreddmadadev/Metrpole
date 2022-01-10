@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * This file is part of the mage-secure-cookie Magento extension.
+ * 
+ * mage-secure-cookie is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * mage-secure-cookie is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with mage-secure-cookie.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author    Axel Helmert <ah@luka.de>
+ * @copyright Copyright (c) 2012 LUKA netconsult GmbH (www.luka.de)
+ * @license   http://www.gnu.org/licenses/lgpl-3.0.txt
+ * @version   $Id$
+ */
+-->
+<config>
+    <sections>
+        <web>
+            <groups>
+                <cookie>
+                    <fields>
+                        <cookie_secure translate="label comment" module="etailersecurecookie">
+                            <label>Secure On Frontend</label>
+                            <comment><![CDATA[This is only effective when "Use Secure URLs in Frontend" is turned on and the unsecure base url starts with "https://".]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cookie_secure>
+                    </fields>
+                </cookie>
+            </groups>
+        </web>
+    </sections>
+</config>

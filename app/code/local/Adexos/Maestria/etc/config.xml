@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_Maestria>
+            <version>0.1.0</version>
+        </Adexos_Maestria>
+    </modules>
+    <global>
+        <models>
+            <adexos_maestria>
+                <class>Adexos_Maestria_Model</class>
+            </adexos_maestria>
+        </models>
+        <helpers>
+            <adexos_maestria>
+                <class>Adexos_Maestria_Helper</class>
+            </adexos_maestria>
+        </helpers>
+    </global>
+    <crontab>
+        <jobs>
+            <adexos_maestria_clean_reports>
+                <schedule>
+                    <cron_expr>0 1 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>adexos_maestria/cron::cleanReports</model>
+                </run>
+            </adexos_maestria_clean_reports>
+        </jobs>
+    </crontab>
+
+    <default>
+        <adexos_maestria_config>
+            <logs>
+                <nb_days>30</nb_days>
+            </logs>
+        </adexos_maestria_config>
+    </default>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <adexos_maestria_config>
+                                            <title>Adexos Maestria</title>
+                                        </adexos_maestria_config>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

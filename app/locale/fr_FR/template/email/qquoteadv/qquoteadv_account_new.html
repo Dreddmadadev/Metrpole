@@ -1,0 +1,62 @@
+<!--@subject Welcome, {{var customer.name}}! @-->
+
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+    <table cellspacing="0" cellpadding="0" border="0" width="98%"
+           style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+        <tr>
+            <td align="center" valign="top">
+                <!-- [ header starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top">
+                            <a href="{{store url=''}}"><img src="{{var logo_url}}"
+                            alt="{{var logo_alt}}" style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr>
+                </table>
+
+                <!-- [ middle starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top">
+                            <p><strong>Bonjour {{htmlescape var=$customer.name}}</strong>,<br/>
+                                Bienvenue sur {{var quote.getStoreGroupName ()}}. Un compte a été créé pour vous afin que nous puissions gérer votre
+                                demande. Dans un court laps de temps, vous recevrez une confirmation de votre demande de devis. Vous
+                                pouvez utiliser les détails ci-dessous pour vous connecter et suivre l'état de votre demande.
+
+                            <p style="border:1px solid #BEBCB7; padding:13px 18px; background:#F8F7F5; ">
+                                Utilisez les valeurs suivantes lorsque vous êtes invité à vous connecter:<br/>
+                                E-mail: {{var customer.email}}<br/>
+                                Mot de passe: {{htmlescape var=$customer.password}}
+
+                            <p>
+
+                            <p>Lorsque vous vous connectez à votre compte, vous serez en mesure de faire ce qui suit:</p>
+
+                            <ul>
+                                <li>Modifier, rejeter et accepter les propositions de prix</li>
+                                <li>Vérifier l'état des commandes et des devis</li>
+                                <li>Voir les commandes passées et re-commander</li>
+                                <li>Apporter des modifications aux informations de votre compte</li>
+                                <li>Changez votre mot de passe</li>
+                                <li>Stockez d'autres adresses (pour les expédier à plusieurs membres de votre famille et vos amis!)
+                                </li>
+                            </ul>
+
+                            <p>Si vous avez des questions concernant votre compte ou toute autre question, n'hésitez pas à
+                                nous contacter à <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a>
+                                ou par téléphone <span class="nobr">{{config path='general/store_information/phone'}}</span>.</p>
+
+                            <p>Merci !</p>
+
+
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</div>

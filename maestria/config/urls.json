@@ -1,0 +1,17 @@
+[
+    {
+        "id": 52,
+        "dom_selectors": [],
+        "enabled": true,
+        "disabled_until": null,
+        "http_code": 200,
+        "max_size": null,
+        "name": "Default",
+        "priority": "emergency",
+        "schedule": "*\/5 8,9,10,11,12,13,14,15,16,17,18 * * 1,2,3,4,5",
+        "text": "<\/html>",
+        "text_forbidden": "\/var\/",
+        "timeout": 5,
+        "url": "https:\/\/www.metropole-equipements.com"
+    }
+]

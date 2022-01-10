@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+    <name>Cart2Quote_Customer_Quotation</name>
+    <version>6.1.2</version>
+    <stability>stable</stability>
+    <license uri="https://www.cart2quote.com/ordering-licenses">Cart2Quote</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Core module for the Cart2Quote module.</summary>
+    <description>Core module for the Cart2Quote module, this module make sure that the Magento installation and environment meets al requirements for Cart2Quote.&#xD;
+&#xD;
+This guarantees that installation of Cart2Quote from the Magento marketplace doesn't break the store.&#xD;
+&#xD;
+For example; If ionCube isn't installed, Cart2Quote won't install to avoid failures or downtime. </description>
+    <notes>Release 6.1.2&#xD;
+&#xD;
+See https://www.cart2quote.com/release-notes for an overview of all release notes.</notes>
+    <authors><author><name>Daniel van der Garde</name><user>Daan</user><email>daan@cart2quote.com</email></author></authors>
+    <date>2018-01-12</date>
+    <time>11:04:58</time>
+    <contents><target name="magecommunity"><dir name="Ophirah"><dir name="Core"><dir name="Block"><dir name="Adminhtml"><dir name="System"><dir name="Config"><dir name="Field"><file name="Install.php" hash="92d00e78e3dbb577af0d4b2d0be553e5"/></dir></dir></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="5014a2887c35ce410f6894f83700744d"/></dir><dir name="Model"><file name="Version.php" hash="dcbf30258678b5a14d27b89cb6ab1d16"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="OphirahcoreController.php" hash="b0f4d1a3c6dc87721f6adcf1c1ed99ee"/></dir><file name=".DS_Store" hash="7448e3cc4f6df46edb67d502b2c330fe"/></dir><dir name="etc"><file name="adminhtml.xml" hash="de8181ef52c256888a1bfe3863fe5d1c"/><file name="config.xml" hash="ad492329be104fcb112c1ee68af19d06"/><file name="system.xml" hash="894d6bd4ff4fb6e05a59797bdaa323bb"/></dir><file name=".DS_Store" hash="b6b7e8d5842c2ec674e1b16a7902f234"/></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Ophirah_Core.xml" hash="663c744437055607c4967ba0e66a9218"/></dir></target><target name="mage"><dir name="var"><dir name="ophirah"><file name="c2q_1.7_1.9_v6.1.2.zip" hash="904b085197ebfc18403854852fc18392"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.3.0</min><max>7.1.9</max></php></required></dependencies>
+</package>

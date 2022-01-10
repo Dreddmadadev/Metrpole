@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<config>
+    <menu>
+        <catalog>
+            <children>
+                <picto translate="title" module="adexos_picto">
+                    <sort_order>60</sort_order>
+                    <title>Picto</title>
+                    <action>adminhtml/picto</action>
+                </picto>
+            </children>
+        </catalog>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <catalog>
+                        <children>
+                            <slide>
+                                <title>Picto</title>
+                            </slide>
+                        </children>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

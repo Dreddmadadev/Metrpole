@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<api>
+		<resources>
+			<bnpmercanetcw_transaction translate="title" module="BNPMercanetCw">
+				<model>bnpmercanetcw/transaction_api</model>
+				<title>BNPMercanetCw Transaction API</title>
+				<acl>bnpmercanetcw_transaction</acl>
+				<methods>
+					<list translate="title" module="BNPMercanetCw">
+						<title>Retrieve transaction</title>
+						<method>items</method>
+						<acl>bnpmercanetcw_transaction/list</acl>
+					</list>
+					<info translate="title" module="BNPMercanetCw">
+						<title>Retrieve transaction data by transaction id</title>
+						<method>info</method>
+						<acl>bnpmercanetcw_transaction/info</acl>
+					</info>
+					<infoByPaymentId translate="title" module="BNPMercanetCw">
+						<title>Retrieve transaction data by payment id</title>
+						<method>infoByPaymentId</method>
+						<acl>bnpmercanetcw_transaction/infoByPaymentId</acl>
+					</infoByPaymentId>
+				</methods>
+				<faults module="BNPMercanetCw">
+					<filters_invalid>
+						<code>101</code >
+						<message>Invalid filters specified. Details in error message.</message>
+					</filters_invalid>
+					<not_exists>
+						<code>102</code >
+						<message>Transaction doesn't exist.</message>
+					</not_exists>
+				</faults>
+			</bnpmercanetcw_transaction>
+		</resources>
+		<v2>
+            <resources_function_prefix>
+                <bnpmercanetcw_transaction>bnpmercanetcwTransaction</bnpmercanetcw_transaction>
+            </resources_function_prefix>
+        </v2>
+		<acl>
+			<resources>
+				<bnpmercanetcw_transaction translate="title" module="BNPMercanetCw">
+					<title>BNPMercanetCw Transactions</title>
+					<list translate="title" module="BNPMercanetCw">
+						<title>View All</title>
+					</list>
+					<info translate="title" module="BNPMercanetCw">
+						<title>Get Info By Transaction Id</title>
+					</info>
+					<infoByPaymentId translate="title" module="BNPMercanetCw">
+						<title>Get Info By Payment Id</title>
+					</infoByPaymentId>
+				 </bnpmercanetcw_transaction>
+			</resources>
+		</acl>
+	</api>
+</config>

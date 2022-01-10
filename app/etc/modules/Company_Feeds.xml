@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Company_Feeds>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>RocketWeb_ShoppingFeeds</depends>
+        </Company_Feeds>
+    </modules>
+</config>

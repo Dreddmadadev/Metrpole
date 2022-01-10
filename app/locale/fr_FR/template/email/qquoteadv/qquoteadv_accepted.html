@@ -1,0 +1,42 @@
+<!--@subject {{var quote.getStoreGroupName()}}: Quote # {{var quote.increment_id}} is accepted @-->
+
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+    <table cellspacing="0" cellpadding="0" border="0" width="98%"
+           style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+        <tr>
+            <td align="center" valign="top">
+                <!-- [ header starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top"><a href="{{store url=''}}"><img src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr>
+                </table>
+                <!-- [ middle starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top">
+                            <p>
+                                <strong>Bonjour {{var adminname}}</strong>,<br/><br>
+                            </p>
+
+                            <h3 style="font-size: 1.05em; padding-bottom: 1px;">
+                                Votre devis #{{var quote.increment_id}}
+                                <small>(effectué le {{var quote.getCreatedAtFormated('long')}})</small>
+                                a été accepté.
+                            </h3>
+                            <p>
+                                Cette note vous est envoyée, car le client a appuyé sur le bouton d'acceptation dans le client
+                                tableau de bord. Le client doit encore terminer le processus de paiement, avant
+                                la proposition est entièrement convertie en commande.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</div>

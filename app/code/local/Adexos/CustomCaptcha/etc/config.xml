@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_CustomCaptcha>
+            <version>0.1.0</version>
+        </Adexos_CustomCaptcha>
+    </modules>
+    <global>
+        <helpers>
+            <adexos_customcaptcha>
+                <class>Adexos_CustomCaptcha_Helper</class>
+            </adexos_customcaptcha>
+        </helpers>
+    </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <captcha_configuration>
+                                            <title>Adexos Captcha</title>
+                                        </captcha_configuration>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

@@ -1,0 +1,65 @@
+.casestudy_container{
+  position: relative;
+  margin-bottom: 40px;
+  &::before{
+    content: '';
+    background: white;
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:-50%;
+  }
+  & .casestudy_wrapper{
+    padding: 60px 18px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    .casestudy_img{
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+      vertical-align: middle;
+      @media screen and (min-width: 990px){
+        width: 50%;
+        float: left;
+      }
+      img{
+        width: 100%;
+      }
+
+    }
+
+    .casestudy_wrap_content{
+      @media screen and (min-width: 990px){
+        float: left;
+        width: calc(50% + 20px);
+        margin-left:-20px;
+      }
+      @media screen and (max-width: 580px){
+
+        padding: 50px 30px;
+      }
+      box-sizing: border-box;
+      width: calc(100% - 40px);
+      margin: 0 auto;
+      margin-top: -20px;
+      background: white;
+      padding: 55px;
+      vertical-align: middle;
+      position: relative;
+      box-sizing: border-box;
+      color: black;
+      font-family: "Roboto";
+      font-size: 14px;
+      .casestudy_title{
+        font-size: 25px;
+        font-family: "Jaapokki";
+        margin-bottom: 20px;
+      }
+
+    }
+
+  }
+
+}

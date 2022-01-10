@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Adexos_Contacts>
+            <version>0.1.0</version>
+        </Adexos_Contacts>
+    </modules>
+    <global>
+        <template>
+            <email>
+                <contacts_email_email_template translate="label" module="contacts">
+                    <label>Contact Form</label>
+                    <file>contact_form.html</file>
+                    <type>html</type>
+                </contacts_email_email_template>
+            </email>
+        </template>
+        <helpers>
+            <adexos_contacts>
+                <class>Adexos_Contacts_Helper</class>
+            </adexos_contacts>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <contacts>
+                <args>
+                    <modules>
+                        <adexos_contacts before="Mage_Contacts">Adexos_Contacts</adexos_contacts>
+                    </modules>
+                </args>
+            </contacts>
+        </routers>
+    </frontend>
+</config>

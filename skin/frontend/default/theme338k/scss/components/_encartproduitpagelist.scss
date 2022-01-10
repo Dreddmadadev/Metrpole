@@ -1,0 +1,287 @@
+.col-xs-12{
+  .main{
+    .row{
+      @media only screen and (max-width: 760px) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}
+
+.col-sm-4{
+  width: 33.2%;
+}
+
+
+.encart-categ-list {
+
+  .title-encart-home {
+    font-family: "Jaapokki";
+    font-size: 28px;
+    color: #292929;
+    text-align: center;
+
+    margin-bottom: 20px;
+  }
+
+  .container-products {
+    display: inline-block;
+    @media only screen and (min-width: 760px) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    justify-content: space-between;
+    margin: 16px -20px;
+    position: relative;
+
+    .product {
+      float:left;
+      display: inline-block;
+      box-sizing: border-box;
+      border: 1px solid $border-grey;
+      text-align: center;
+      background-color: white;
+      justify-content: flex-end;
+      width:290px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      @media only screen and (min-width: 760px) {
+        float: none;
+        width: auto;
+      }
+      @media only screen and (max-width: 1200px) {
+        width:100%;
+      }
+      @media only screen and (max-width: 760px) {
+        width:90%;
+        margin-left: 5%;
+      }
+
+      &:hover{
+        border: 1px solid $primary-color;
+        .product-shop{
+          border-top: 1px solid $primary-color;
+        }
+      }
+      .isspecialPrice{
+        .old-price{
+          margin-bottom: 12px;
+        }
+      }
+      .product-shop{
+        min-height: 245px;
+        border-top: 1px solid $border-grey;
+        padding-top: 15px;
+        @media only screen and (min-width: 760px) and (max-width: 990px) {
+          min-height: 212px;
+        }
+        .actions{
+          padding-bottom: 3px;
+        }
+
+        .product-name{
+          min-height: 68px;
+          @media only screen and (min-width: 760px) and (max-width: 990px) {
+            min-height: 67px;
+          }
+            a{
+                font-family: Roboto, sans-serif;
+                font-size: 18px;
+                padding: 3px;
+
+            }
+        }
+
+        & > .price {
+          min-height: 60px;
+        }
+      }
+      button {
+        width: 90%;
+        margin: 0 auto -12px auto;
+        display: block;
+        &.btn-cart {
+          span {
+            background: $primary-color;
+            display: inline-block;
+            padding: 3px 9px;
+            border-radius: 3px;
+            font-family: Jaapokki;
+            font-weight: normal;
+            font-size: 20px;
+            width: 100%;
+            margin: 0 auto;
+            text-transform: none;
+            @media only screen and (max-width: 1200px) {
+              padding: 3px;
+            }
+
+            @media only screen and (min-width: 760px) and (max-width: 990px) {
+              font-size: 16px;
+            }
+            a {
+              color: white;
+            }
+          }
+        }
+        &.btn-qtn {
+          border: 1px black solid;
+          border-radius: 4px;
+          margin-top: -2px;
+          span {
+            background: white;
+            color: black;
+            display: inline-block;
+            padding: 3px 9px;
+            border-radius: 3px;
+            font-family: Jaapokki;
+            font-size: 20px;
+            font-weight: normal;
+            width: 100%;
+            margin: 0 auto;
+            text-transform: none;
+
+            @media only screen and (max-width: 1200px) {
+              padding: 3px;
+            }
+            @media only screen and (min-width: 760px) and (max-width: 990px) {
+              font-size: 16px;
+            }
+            a {
+              color: white;
+            }
+          }
+        }
+      }
+
+      span {
+        display: inline-block;
+        font-family: Roboto, sans-serif;
+        text-align: center;
+        position: relative;
+
+        .percentage{
+          background-image: url(../images/picto_promo.png);
+          background-repeat: no-repeat;
+          width: 63px;
+          height: 63px;
+          color: white;
+          position: absolute;
+          right: 5px;
+          top: 5px;
+          line-height: 57px;
+          font-size: 25px;
+          .percent{
+            font-size: 15px;
+            vertical-align: super;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+
+          @media only screen and (min-width: 760px) and (max-width: 990px){
+            width: 210px;
+          }
+
+        }
+
+        &.encart-name {
+          color: #07afc8;
+          font-family: Roboto, sans-serif;
+          font-size: 17px;
+          margin-top: 20px;
+        }
+
+        &.product-name {
+          font-size: 18px;
+          color: #292929;
+          width:200px;
+          margin: 0 auto;
+          height: 50px;
+          @media only screen and (min-width: 760px) and (max-width: 990px){
+            font-size: 16px;
+          }
+        }
+
+        &.old-price {
+          min-height: 50px;
+          width: 100%;
+          .price {
+            color: $font-color-grey;
+            font-size: 18px;
+            font-weight: normal;
+            padding: 5px 0 25px;
+          }
+          & .ht {
+            display: inline-block;
+            position: relative;
+            bottom: 1px;
+            font-size: 10px;
+            line-height: 14px;
+            vertical-align: super;
+            text-decoration: none;
+            color: $font-color-grey;
+          }
+        }
+        &.price {
+          padding: 7px 0 0;
+          font-size: 25px;
+          color: #292929;
+          @media only screen and (max-width: 760px) {
+            padding: 10px 0 30px;
+          }
+
+          .apartirde{
+            display: block;
+            width: 97%;
+            font-size: 17px;
+            color: $font-color-grey;
+            min-height: 20px;
+            margin-bottom: 7px;
+          }
+
+          & .ht {
+            display: inline-block;
+            position: relative;
+            bottom: 1px;
+            font-size: 16px;
+            line-height: 16px;
+            vertical-align: super;
+            text-decoration: none;
+          }
+
+          &.specialPrice {
+            padding: 0;
+            font-size: 25px;
+            width: 100%;
+
+            .apartirde{
+              margin-bottom: -5px;
+            }
+            .price {
+              padding: 20px 0 0;
+              color: $red;
+            }
+            & .ht {
+              display: inline-block;
+              position: relative;
+              bottom: 1px;
+              font-size: 16px;
+              line-height: 16px;
+              vertical-align: super;
+              text-decoration: none;
+              color: $red;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

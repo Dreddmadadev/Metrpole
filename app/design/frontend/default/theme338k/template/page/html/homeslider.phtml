@@ -1,0 +1,53 @@
+<?php
+$slides = Mage::getModel('adexos_homeslider/slide')->getCollection()
+    ->addFieldToSelect('*')
+    ->addFieldToFilter("disabled", 0);
+
+$slides->getSelect()->order("order ASC");
+
+?>
+<div class="header_slider">
+    <script type="text/javascript" src="<?= $this->getSkinUrl("js/camera.js") ?>"></script>
+    <script type="text/javascript">
+        /* index slider */
+        jQuery(function () {
+            jQuery('#camera_wrap').camera({
+                alignmen: 'topCenter',
+                height: '32.714%',
+                minHeight: '50px',
+                loader: false,
+                pagination: false,
+                fx: 'simpleFade',
+                transPeriod: 400,
+                navigationHover: false,
+                thumbnails: false,
+                playPause: false
+            });
+        });
+    </script>
+    <div class="fluid_container">
+        <div class="camera_wrap camera_orange_skin" id="camera_wrap">
+
+            <?php foreach ($slides as $slide): ?>
+
+                <div data-src="<?= Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $slide->getImage() ?>"
+                     data-link="<?= $slide->getLink(); ?>">
+                    <div class="camera_caption fadeIn">
+                        <div class="right_slider_side sl_1">
+                            <div class="slider_holder">
+                                <a href="<?= $slide->getLink(); ?>">
+                                    <h2><?= $slide->getTitle(); ?></h2>
+                                    <p><?= $slide->getContent(); ?></p>
+                                    <span class="btn cta">Je découvre</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <?php endforeach; ?>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

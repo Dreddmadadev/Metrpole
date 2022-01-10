@@ -1,0 +1,263 @@
+.encart-categ {
+  text-align: center;
+  margin-top:62px;
+  position: relative;
+
+  .title-encart-home {
+    font-family: "Jaapokki";
+    font-size: 28px;
+    color: #292929;
+    display: inline-block;
+    margin-bottom: 40px;
+    background: $background-grey;
+    z-index: 10;
+    height: 24px;
+    padding: 0 10px;
+  }
+
+  &:before{
+    content: '';
+    height: 1px;
+    width: 100%;
+    border-bottom: 4px solid $primary-color;
+    position: absolute;
+    top:20px;
+    left:0;
+    z-index: -1;
+  }
+
+  .container-products {
+    display: inline-block;
+    margin-top: 16px;
+    @media only screen and (min-width: 760px) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    justify-content: space-between;
+    margin: 0 -20px;
+    position: relative;
+
+    .product {
+      float:left;
+      display: inline-block;
+      box-sizing: border-box;
+      border: 1px solid $border-grey;
+      text-align: center;
+      padding-bottom: 10px;
+      background-color: white;
+      justify-content: flex-end;
+      margin: 0 20px 20px 20px;
+      width:290px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      @media only screen and (min-width: 760px) {
+        float: none;
+        width: auto;
+      }
+
+      @media only screen and (max-width: 1200px) {
+
+        &:last-child{
+          display: none;
+        }
+      }
+
+      &:hover{
+        border: 1px solid $primary-color;
+        span img{
+          border-bottom: 1px solid $primary-color;
+        }
+      }
+
+
+      span {
+        display: inline-block;
+        font-family: Roboto, sans-serif;
+        text-align: center;
+        position: relative;
+
+        .percentage{
+          background-image: url(../images/picto_promo.png);
+          background-repeat: no-repeat;
+          width: 63px;
+          height: 63px;
+          color: white;
+          position: absolute;
+          right: 5px;
+          top: 5px;
+          line-height: 57px;
+          font-size: 25px;
+          .percent{
+            font-size: 15px;
+            vertical-align: super;
+          }
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          border-bottom: 1px solid $border-grey;
+
+          @media only screen and (min-width: 760px) and (max-width: 990px){
+            width: 210px;
+          }
+
+        }
+
+        &.product-image{
+          border-bottom: 1px solid #c4c4c4;
+        }
+
+        &.encart-name {
+          color: #07afc8;
+          font-family: Roboto, sans-serif;
+          font-size: 17px;
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+
+        &.product-name {
+          font-size: 18px;
+          color: #292929;
+          width:200px;
+          margin: 0 auto;
+          height: 50px;
+          @media only screen and (min-width: 760px) and (max-width: 990px){
+            font-size: 16px;
+          }
+        }
+
+        &.old-price {
+          .price {
+            color: $font-color-grey;
+            font-size: 18px;
+            font-weight: normal;
+            padding: 5px 0 55px;
+          }
+          & .ht {
+            display: inline-block;
+            position: relative;
+            bottom: 1px;
+            font-size: 10px;
+            line-height: 14px;
+            vertical-align: super;
+            text-decoration: none;
+            color: $font-color-grey;
+          }
+        }
+
+        &.price {
+          padding: 20px 0 40px;
+          font-size: 25px;
+          color: #292929;
+
+
+          .apartirde{
+            display: block;
+            width: 97%;
+            font-size: 17px;
+            color: $font-color-grey;
+            min-height: 20px;
+          }
+
+          & .ht {
+            display: inline-block;
+            position: relative;
+            bottom: 1px;
+            font-size: 16px;
+            line-height: 16px;
+            vertical-align: super;
+            text-decoration: none;
+          }
+        }
+
+        &.specialPrice {
+          padding: 20px 0 0;
+          font-size: 25px;
+          .price {
+            padding: 20px 0 0;
+            color: $red;
+          }
+          & .ht {
+            display: inline-block;
+            position: relative;
+            bottom: 1px;
+            font-size: 16px;
+            line-height: 16px;
+            vertical-align: super;
+            text-decoration: none;
+            color: $red;
+          }
+        }
+
+
+        &.addtocart {
+          background: $primary-color;
+          display: inline-block;
+          padding: 10px 25px;
+          border-radius: 3px;
+          font-family: "Jaapokki";
+          font-size: 19px;
+          width: 90%;
+          margin: 0 auto;
+
+          @media only screen and (min-width: 760px) and (max-width: 990px){
+            font-size: 16px;
+          }
+          a {
+            color: white;
+          }
+        }
+      }
+
+    }
+  }
+
+  .bx-wrapper .bx-controls-direction a{
+    display: block;
+    width:32px;
+    height:80px;
+    background: rgba(#777777 , 0.6);
+    top: calc(50% - 40px);
+    &.bx-prev{
+      left:-15px;
+
+      &:after{
+        content: "\f104";
+        font-family: FontAwesome;
+        color:white;
+        font-size:45px;
+        width:32px;
+        height:80px;
+        position: relative;
+        display: inline-block;
+        padding-top: 30px;
+        padding-left: 6px;
+
+      }
+
+    }
+    &.bx-next{
+      right:-15px;
+
+      &:after{
+        content: "\f105";
+        font-family: FontAwesome;
+        color:white;
+        font-size:45px;
+        width:32px;
+        height:80px;
+        position: relative;
+        display: inline-block;
+        padding-top: 30px;
+        padding-left: 10px;
+      }
+
+    }
+
+  }
+
+
+}

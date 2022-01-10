@@ -1,0 +1,52 @@
+<?php if ($posts = $this->getRecent()): $post = $posts->getFirstItem(); ?>
+    <div class="blog-bg">
+        <div>
+            <div class="row">
+                <div class="col-xs-12 presentation">
+                    <div class="blog_content">
+
+                        <div class="blog_title"><h2><?php echo $this->__('Présentation') ?></h2></div>
+                        <div class="video-container">
+                            <iframe id="video-pres" width="570" height="270" frameborder="0"
+                                    allow="encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 blog-recents">
+                    <div class="blog_content">
+
+                        <div class="blog_title"><h2><?php echo $this->__('Actualités') ?></h2></div>
+
+                        <div class="blog_intex_posts">
+                            <?php $i = 0; ?>
+                            <?php foreach ($posts as $post) : ?>
+                            <div class="col-xs-12 col-md-6 blog_post">
+                                <div class="blog_index_pic">
+                                    <a href="<?php echo $post->getAddress(); ?>">
+                                        <?php echo Mage::helper('cms')->getBlockTemplateProcessor()->filter($post->getShortContent()); ?>
+                                    </a>
+                                </div>
+                                <div class="index_post_wrapper">
+                                    <div class="widget-latest-title"><a
+                                                href="<?php echo $post->getAddress(); ?>"><?php echo $post->getTitle(); ?></a>
+                                    </div>
+                                    <div class="postContent">
+                                        <?php
+                                        $small_descr = strip_tags(Mage::helper('cms')->getBlockTemplateProcessor()->filter($post->getShortContent()));
+                                        echo mb_substr($small_descr, 0, 160, 'UTF-8');
+                                        ?>...
+                                    </div>
+                                    <a href="<?php echo $post->getAddress(); ?>" class="button">Lire la suite</a>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<?php // $tt = count($this->getRecent()); print_r($tt) ; ?>

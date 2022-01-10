@@ -1,0 +1,453 @@
+[
+    {
+        "name": "composer:security-check",
+        "label": "Composer security check.",
+        "description": "Check for known security vulnerabilities in your dependencies.",
+        "schedule": "0 3 * * *",
+        "priority": "high",
+        "estimated_solving_time": 0.5,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "http:gzip-encoding",
+        "label": "Gzip encoding is enabled.",
+        "description": "Check if an URL gets a Gzip encoded response.",
+        "schedule": "0 3 * * *",
+        "priority": "medium",
+        "estimated_solving_time": 0.5,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "http:hidden-url",
+        "label": "Critical URLs are hidden.",
+        "description": "Check a protected URL.",
+        "schedule": "0 3 * * *",
+        "priority": "emergency",
+        "estimated_solving_time": 2,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "http:https-redirection",
+        "label": "URLs requested with HTTP scheme are redirected to HTTPS (301).",
+        "description": "Check if an URL which originally set a HTTPS scheme is correctly redirected (301) when requested with a HTTP scheme.",
+        "schedule": "0 8,13 * * *",
+        "priority": "emergency",
+        "estimated_solving_time": 0.5,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "http:no-indexes",
+        "label": "Web server does not show directories contents.",
+        "description": "Check if the Web server is configured to forbid displaying of directories contents.",
+        "schedule": "0 3 * * *",
+        "priority": "medium",
+        "estimated_solving_time": 0.5,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "http:secure-cookies",
+        "label": "Cookies are secure.",
+        "description": "Check if an URL gets a response with secure cookies (HttpOnly and HTTPS secure).",
+        "schedule": "0 3 * * *",
+        "priority": "medium",
+        "estimated_solving_time": 1,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "http:secure-headers",
+        "label": "Headers are secure.",
+        "description": "Check if an URL gets a response with secure headers (no critical information exposed).",
+        "schedule": "0 3 * * *",
+        "priority": "medium",
+        "estimated_solving_time": 1,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "http:www-redirection",
+        "label": "URLs without www subdomain are redirected (301).",
+        "description": "Check if an URL which originally set a www subdomain is correctly redirected (301) when this subdomain is omitted.",
+        "schedule": "0 8,13 * * *",
+        "priority": "emergency",
+        "estimated_solving_time": 0.5,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "magento1:api",
+        "label": "API is correctly configured.",
+        "description": "Check if the Magento API is correctly configured.",
+        "schedule": "0 0 * * *",
+        "priority": "high",
+        "estimated_solving_time": 1,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": {
+            "ignored_usernames": {
+                "type": "array",
+                "default": [],
+                "description": "Usernames that have to be ignored by Maestria."
+            }
+        },
+        "options": []
+    },
+    {
+        "name": "magento1:deferred-js",
+        "label": "JavaScript files are loaded after the DOM loading.",
+        "description": "Check if the JavaScript files are loaded after the DOM loading by the Meanbee_FooterJs plugin.",
+        "schedule": "0 *\/6 * * *",
+        "priority": "high",
+        "estimated_solving_time": 0.5,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "magento1:enabled-cache",
+        "label": "The cache is fully enabled.",
+        "description": "Check if the Magento cache is fully enabled.",
+        "schedule": "0 *\/6 * * *",
+        "priority": "emergency",
+        "estimated_solving_time": 0.33,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": {
+            "ignored_caches": {
+                "type": "array",
+                "default": [],
+                "description": "Caches that have to be ignored by Maestria."
+            }
+        },
+        "options": []
+    },
+    {
+        "name": "magento1:enabled-cron",
+        "label": "Cron job and scheduler are enabled.",
+        "description": "Check if Magento cron job and scheduler are enabled.",
+        "schedule": "0 8,13 * * *",
+        "priority": "emergency",
+        "estimated_solving_time": 0.25,
+        "enabled": false,
+        "disabled_reason": "aucun acc\u00e8s \u00e0 crontab avec cet utilisateur",
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "magento1:merged-css",
+        "label": "CSS files are merged.",
+        "description": "Check if CSS files are merged (configuration, and number of CSS requests.",
+        "schedule": "0 3 * * *",
+        "priority": "high",
+        "estimated_solving_time": 1,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "magento1:merged-js",
+        "label": "JavaScript files are merged.",
+        "description": "Check if JavaScript files are merged (configuration, and number of JavaScript requests.",
+        "schedule": "0 3 * * *",
+        "priority": "high",
+        "estimated_solving_time": 1,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "magento1:required-modules",
+        "label": "Required modules are installed and enabled.",
+        "description": "Check if the required modules are installed and enabled. These modules are: Adexos_Maestria, Alekseon_ModulesConflictDetector, Aoe_Scheduler, Aschroder_SMTPPro, BalkeTechnologies_StoreMaintenance, Cm_RedisSession, Guidance_Cachebuster, Meanbee_Footerjs",
+        "schedule": "0 3 * * MON",
+        "priority": "low",
+        "estimated_solving_time": 4,
+        "enabled": false,
+        "disabled_reason": "redis n'est pas sur le serveur",
+        "disabled_until": null,
+        "options_configuration": {
+            "ignored_modules": {
+                "type": "array",
+                "default": [],
+                "description": "Modules that have to be ignored by Maestria."
+            }
+        },
+        "options": {
+            "ignored_modules": [
+                ""
+            ]
+        }
+    },
+    {
+        "name": "magento1:safe-debug",
+        "label": "The debug mode is enabled for some IPs only.",
+        "description": "Check if the debug mode is enabled for some IPs only.",
+        "schedule": "0 *\/6 * * *",
+        "priority": "emergency",
+        "estimated_solving_time": 0.33,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "magento1:safe-log",
+        "label": "Log files and tables have exploitable sizes.",
+        "description": "Check if log files and log tables have exploitable sizes, and check the logrotate configuration.",
+        "schedule": "0 3 * * *",
+        "priority": "high",
+        "estimated_solving_time": 1,
+        "enabled": false,
+        "disabled_reason": "logrotate est configur\u00e9 par l'hebergeur dans la conf g\u00e9n\u00e9ral et n'utilise pas le fichier logrotate.conf du projet",
+        "disabled_until": null,
+        "options_configuration": {
+            "logrotate_command": {
+                "type": "string",
+                "default": "logrotate",
+                "description": "Command used to run logrotate."
+            }
+        },
+        "options": {
+            "logrotate_command": "logrotate"
+        }
+    },
+    {
+        "name": "magento1:safe-mail",
+        "label": "Mails are sent in a good way.",
+        "description": "Check if mails are sent by the ASchroder_SMTPPro extension, caught by MailHog only in staging environment, and if the core_email_queue table is abnormally filled.",
+        "schedule": "0 0 * * *",
+        "priority": "high",
+        "estimated_solving_time": 0.33,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": {
+            "ignore_mailhog": {
+                "type": "boolean",
+                "default": false,
+                "description": "Set true to ignore the checking of MailHog."
+            },
+            "mailhog_process": {
+                "type": "string",
+                "default": "mailhog",
+                "description": "Command used to run MailHog."
+            },
+            "mailhog_port": {
+                "type": "int",
+                "default": 1025,
+                "description": "Port used by MailHog."
+            },
+            "queue_limit": {
+                "type": "int",
+                "default": 10,
+                "description": "Acceptable number of pending emails in the core_email_queue table."
+            }
+        },
+        "options": []
+    },
+    {
+        "name": "magento1:secure-admin-usernames",
+        "label": "No unsecured admin usernames are defined.",
+        "description": "Check if no unsecured admin usernames are defined (\"admin\", too short, etc.).",
+        "schedule": "0 3 * * MON",
+        "priority": "high",
+        "estimated_solving_time": 1,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": {
+            "ignored_usernames": {
+                "type": "array",
+                "default": [],
+                "description": "Usernames that have to be ignored by Maestria."
+            }
+        },
+        "options": []
+    },
+    {
+        "name": "magento1:secure-backend",
+        "label": "Check if the backend is secure.",
+        "description": "Check if the backend is secure (not reachable at \/admin).",
+        "schedule": "0 3 * * MON",
+        "priority": "medium",
+        "estimated_solving_time": 7,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "magento1:useless-modules",
+        "label": "Useless modules are uninstalled.",
+        "description": "Check if useless modules are uninstalled. These modules are: Mage_Compiler, Mage_Downloadable, Mage_Paypal, Mage_PaypalUk, Mage_Poll, Mage_ProductAlert, Mage_Rating, Mage_Review, Mage_Rss, Mage_Tag",
+        "schedule": "0 3 * * MON",
+        "priority": "medium",
+        "estimated_solving_time": 1,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": {
+            "ignored_modules": {
+                "type": "array",
+                "default": [],
+                "description": "Modules that have to be ignored by Maestria."
+            }
+        },
+        "options": []
+    },
+    {
+        "name": "php:error-reporting",
+        "label": "The error reporting is correctly configured.",
+        "description": "Check if the error reporting is correctly configured (error_reporting, display_errors, reports...",
+        "schedule": "0 0 * * *",
+        "priority": "high",
+        "estimated_solving_time": 0.5,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": {
+            "error_reporting": {
+                "type": "boolean",
+                "default": true,
+                "description": "Set false to ignore the checking of the error_reporting option."
+            },
+            "display_errors": {
+                "type": "boolean",
+                "default": true,
+                "description": "Set false to ignore the checking of the display_errors option."
+            },
+            "log_errors": {
+                "type": "boolean",
+                "default": true,
+                "description": "Set false to ignore the checking of the log_errors option."
+            },
+            "allow_deprecated": {
+                "type": "boolean",
+                "default": false,
+                "description": "Set true to allow E_DEPRECATED errors."
+            },
+            "allow_strict": {
+                "type": "boolean",
+                "default": false,
+                "description": "Set true to allow E_STRICT errors."
+            }
+        },
+        "options": []
+    },
+    {
+        "name": "seo:google-analytics",
+        "label": "Google Analytics or Tag Manager tags are correctly set.",
+        "description": "Check if Google Analytics or Tag Manager tags are enabled on production environment, and disabled on other environments.",
+        "schedule": "0 3 * * *",
+        "priority": "medium",
+        "estimated_solving_time": 1,
+        "enabled": false,
+        "disabled_reason": "pas de google analytics",
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "seo:robots",
+        "label": "Robots.txt is correctly set.",
+        "description": "Check the robots.txt definition.",
+        "schedule": "0 8,9,10,11,12,13,14,15,16,17,18 * * *",
+        "priority": "emergency",
+        "estimated_solving_time": 0.5,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "seo:sitemap",
+        "label": "The sitemap.xml file is correctly set.",
+        "description": "Check the sitemap.xml file is correctly set.",
+        "schedule": "0 0 * * *",
+        "priority": "high",
+        "estimated_solving_time": 2,
+        "enabled": false,
+        "disabled_reason": "Maestria point de contr\u00f4le a mettre \u00e0 jour",
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "seo:staging",
+        "label": "The staging environment is not indexed by Google.",
+        "description": "Check if the staging environment is not indexed by Google.",
+        "schedule": "0 0 * * *",
+        "priority": "high",
+        "estimated_solving_time": 0.33,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": [],
+        "options": []
+    },
+    {
+        "name": "unix:file-permissions",
+        "label": "All UNIX file permissions are correctly set.",
+        "description": "Check if all UNIX file permissions are correctly set in both Web and CLI modes.",
+        "schedule": "0 *\/6 * * *",
+        "priority": "emergency",
+        "estimated_solving_time": 0.25,
+        "enabled": true,
+        "disabled_reason": null,
+        "disabled_until": null,
+        "options_configuration": {
+            "ignored_files": {
+                "type": "array",
+                "default": [],
+                "description": "Files that have to be ignored by Maestria."
+            },
+            "extra_files": {
+                "type": "array",
+                "default": [],
+                "description": "Files to check in addition of the others."
+            }
+        },
+        "options": []
+    }
+]
